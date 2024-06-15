@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+
+spawn lldb
+expect "lldb" 
+exp_send "process connect connect://127.0.0.1:12345"
+exp_send "\r"
+exp_send "command script import fuzzer.py"
+exp_send "\r"
+interact

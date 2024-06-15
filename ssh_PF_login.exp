@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+
+set PW [lindex $argv 0]
+set passwd [exec echo $PW | base64 -d]
+
+spawn ssh -L 12345:localhost:23456 root@localhost -p 2222
+expect {
+	-re ".*es.*o.*" {
+		exp_send "yes\r"
+		exp_continue
+		}
+	-re ".*sword.*" {
+		exp_send "${passwd}\r"
+		}
+	}
+interact

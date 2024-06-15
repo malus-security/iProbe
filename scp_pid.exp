@@ -1,0 +1,13 @@
+#!/usr/bin/expect
+
+set PW [lindex $argv 0]
+set passwd [exec echo $PW | base64 -d]
+
+spawn scp -P 2222 ./debugserver/debugserver root@localhost:/var/root/
+expect {
+  -re ".*sword.*" {
+      exp_send "$passwd"
+      exp_send '\r'
+    }
+  }
+interact
