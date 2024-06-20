@@ -20,13 +20,12 @@ iProbe is only available for **MacOS** and requires a **jailbroken version of iO
 
 USAGE: ./setup.sh [-h] -os_version VERSION [-executable EXEC]
 
-Kernel cache manipulation tool
 
 positional arguments:
-  os_version                the current iOS version installed 
-							on the mobile device
+  os_version                the current iOS version installed
+			    on the mobile device
 optional arguments:
-  -help			            show this help message and exit
+  -help			    show this help message and exit
   -executable EXEC          name of the target executable
 ```
 
